@@ -2,7 +2,10 @@
 
 Reference: IS-IS Network Design Solutions by Abe Martey, Scott Sturgess
 
-## Overview of IP Routing
+- [1. IPルーティング概要](#IPルーティング概要)
+- [2. IS-ISルーティングプロトコルの概要](#IS-ISルーティングプロトコルの概要)
+
+## 1. IPルーティング概要
 - IPルーティングはコントロールプレーンで実行
 - IPルーティングプロトコルはネットワーク内の宛先への候補パスをRouting Information Base(RIB)へ保存
 - RIB内の宛先ごとのベストパスがルーティングテーブルに載る
@@ -34,6 +37,22 @@ Reference: IS-IS Network Design Solutions by Abe Martey, Scott Sturgess
        - 2つのデータベースを作成し、すべてハードウェア転送を行うため、高速。
          - FIB (Forwarding Information Base): ルルーティングテーブルから作成。ネクストホップIPを管理。
          - Adjacency Database: ARPにより取得。L2ネクストホップ情報(MACアドレスやインタフェース)を管理。
+
         
+## 2. IS-ISルーティングプロトコルの概要
+- 国際標準化機構（ISO）(現在は国際電気通信連合(ITU))が、７層のOSI参照モデルを定義
+- 異なるメーカの通信機器間の相互接続性と相互運用性を可能にするためのオープンスタンダードを開発するためのアーキテクチャフレームワーク
+- OSI参照モデルでは２つのネットワークサービスが定義されている
+  1. CONS (Connection-Oriented Network Services)
+     - エンドツーエンドのパスを事前定義して設定
+  2. CLNS (Connectionless Network Services)
+     - 送信元と宛先間の最適パスに従ってルータによって個別に転送
+     - 下記のISOプロトコルによってサポート
+       - CLNP (Connectionless Network Protocol)
+       - ES-IS (End System-to-Intermediate System)
+       - IS-IS (Intermediate System-to-Intermediate System)
+    - これらはOSI参照モデルの第三層(Network Layer)に共存し、Initial Protocol Identifer(IPI)フィールドの値によって区別される
+    - 
+
         
 
